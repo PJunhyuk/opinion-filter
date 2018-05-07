@@ -12,7 +12,7 @@ var loginRouter = require('./routes/login');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-const mongoDB = 'mongodb://127.0.0.1:27017/test'
+const mongoDB = 'mongodb://127.0.0.1:27017/opinion' // DB명 설정
 const promise = mongoose.connect(mongoDB, {
   // useMongoClient: true
 });
