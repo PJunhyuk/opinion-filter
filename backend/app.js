@@ -6,6 +6,16 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/login');
+
+// For mongoDB & mongoose
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
+const mongoDB = 'mongodb://127.0.0.1:27017/test'
+const promise = mongoose.connect(mongoDB, {
+  // useMongoClient: true
+});
 
 var app = express();
 app.use(require('connect-history-api-fallback')());
@@ -22,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

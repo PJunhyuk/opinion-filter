@@ -6,9 +6,10 @@
       <h2>당신의 의견을 들려주세요!</h2>
     </div>
     <div class="login">
-      <input v-model="phone_number" placeholder="핸드폰 번호">
-      <p>{{ is_phone (phone_number) }}</p>
-      <button>핸드폰 번호로 로그인</button>
+      <input v-model="user.phone_number" placeholder="핸드폰 번호">
+      <!-- <p>{{ is_phone (user.phone_number) }}</p> -->
+      <p></p>
+      <button v-on:click="login">핸드폰 번호로 로그인</button>
     </div>
     <div class="info">
       <div class="info-phone">
@@ -21,16 +22,36 @@
   </div>
 </template>
 <script>
+/* eslint-disable */
 export default {
   name: 'index',
   data () {
     return {
-      phone_number: ''
+      user: {
+        phone_number: ''
+      }
     }
   },
   methods: {
-    is_phone (num) {
-      return /^\d+$/.test(num) ? (num.length === 11 ? '확인되었습니다!' : '11자리여야 합니다') : '- 를 제외하고 숫자만 입력해주세요'
+    // is_phone (num) {
+    //   return /^\d+$/.test(num) ? (num.length === 11 ? '확인되었습니다!' : '11자리여야 합니다') : '- 를 제외하고 숫자만 입력해주세요'
+    // },
+    login: function (event) {
+      this.$http.post('/api/login/signUp', {
+        user: this.user
+      })
+      .then((response) => {
+        if (response.data.result === 0) {
+          alert('Error, please, try again')
+        }
+        if (response.data.result === 1) {
+          alert('Success')
+          this.$router.push('/login')
+        }
+      })
+      .catch(function (error) {
+        alert('error')
+      })
     }
   }
 }

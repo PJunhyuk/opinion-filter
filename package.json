@@ -1,0 +1,24 @@
+{
+  "name": "vue-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "mongoose": "^5.0.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PJunhyuk/vue-login.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PJunhyuk/vue-login/issues"
+  },
+  "homepage": "https://github.com/PJunhyuk/vue-login#readme"
+}
