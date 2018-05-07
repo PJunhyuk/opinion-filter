@@ -73,3 +73,6 @@ yarn-error.log
 test/unit/coverage
 test/e2e/reports
 selenium-debug.log
+
+## Customized
+backend/public
