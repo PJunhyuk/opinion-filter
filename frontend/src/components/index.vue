@@ -37,20 +37,36 @@ export default {
     //   return /^\d+$/.test(num) ? (num.length === 11 ? '확인되었습니다!' : '11자리여야 합니다') : '- 를 제외하고 숫자만 입력해주세요'
     // },
     login: function (event) {
-      this.$http.post('/api/login/signUp', {
+      // 해당 phone_number의 유저가 있는지를 check를 통해 체크
+      this.$http.post('/api/login/check', {
         user: this.user
       })
-      .then((response) => {
-        if (response.data.result === 0) {
-          alert('Error, please, try again')
+      .then(
+        (response) => { // 있음 -> 로그인 성공
+          alert('이미 있는 휴대폰 번호입니다. 로그인합니다.')
+          this.$router.push('/hihi') // /hihi 페이지로 이동
+        },
+        (error) => { // 없음 -> 자동 회원가입
+          this.$http.post('/api/login/signUp', { // signUp을 통해 새로운 유저 생성
+            user: this.user
+          })
+          .then(
+            (response) => { // 정상적으로 생성
+            if (response.data.result === 0) { // 에러 발생
+              alert('에러가 발생했습니다. 관리자한테 문의해주세요.')
+            }
+            if (response.data.result === 1) { // 정상적으로 생성
+              alert('새로운 휴대폰 번호입니다. 자동 로그인합니다.')
+              this.$router.push('/login') // /login 페이지로 이동
+            }
+          })
+          .catch(function (error) {
+            alert('error')
+          })
         }
-        if (response.data.result === 1) {
-          alert('Success')
-          this.$router.push('/login')
-        }
-      })
-      .catch(function (error) {
-        alert('error')
+      )
+      .catch(error => {
+        alert(error)
       })
     }
   }
