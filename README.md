@@ -50,3 +50,6 @@ db$ mongo
 > use opinion
 > db.users.find()
 ```
+
+## Reference
+[[Node.js] mongoDB , node.js, vue.js 를 통한 CURD(로그인, 회원가입)](https://m.blog.naver.com/kangminser88/221152151491)

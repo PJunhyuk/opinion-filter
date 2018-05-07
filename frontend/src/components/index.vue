@@ -6,8 +6,8 @@
       <h2>당신의 의견을 들려주세요!</h2>
     </div>
     <div class="login">
-      <input v-model="user.phone_number" placeholder="핸드폰 번호">
-      <!-- <p>{{ is_phone (user.phone_number) }}</p> -->
+      <input v-model="user.phone_number" placeholder="핸드폰 번호" v-on:keyup.enter="login" :maxlength="11">
+      <p>{{ is_phone (user.phone_number) }}</p>
       <p></p>
       <button v-on:click="login">핸드폰 번호로 로그인</button>
     </div>
@@ -33,41 +33,54 @@ export default {
     }
   },
   methods: {
-    // is_phone (num) {
-    //   return /^\d+$/.test(num) ? (num.length === 11 ? '확인되었습니다!' : '11자리여야 합니다') : '- 를 제외하고 숫자만 입력해주세요'
-    // },
-    login: function (event) {
-      // 해당 phone_number의 유저가 있는지를 check를 통해 체크
-      this.$http.post('/api/login/check', {
-        user: this.user
-      })
-      .then(
-        (response) => { // 있음 -> 로그인 성공
-          alert('이미 있는 휴대폰 번호입니다. 로그인합니다.')
-          this.$router.push('/hihi') // /hihi 페이지로 이동
-        },
-        (error) => { // 없음 -> 자동 회원가입
-          this.$http.post('/api/login/signUp', { // signUp을 통해 새로운 유저 생성
-            user: this.user
-          })
-          .then(
-            (response) => { // 정상적으로 생성
-            if (response.data.result === 0) { // 에러 발생
-              alert('에러가 발생했습니다. 관리자한테 문의해주세요.')
-            }
-            if (response.data.result === 1) { // 정상적으로 생성
-              alert('새로운 휴대폰 번호입니다. 자동 로그인합니다.')
-              this.$router.push('/login') // /login 페이지로 이동
-            }
-          })
-          .catch(function (error) {
-            alert('error')
-          })
+    is_phone (num) {
+      if (/^\d+$/.test(num)) {
+        if (num.length === 11) {
+          return '확인되었습니다!'
+        } else {
+          return '11자리여야 합니다'
         }
-      )
-      .catch(error => {
-        alert(error)
-      })
+      } else {
+        return '- 를 제외하고 숫자만 입력해주세요'
+      }
+      // return /^\d+$/.test(num) ? (num.length === 11 ? '확인되었습니다!' : '11자리여야 합니다') : '- 를 제외하고 숫자만 입력해주세요'
+    },
+    login: function (event) {
+      if (this.user.phone_number.length < 11) {
+        alert("11자리여야 합니다")
+      } else {
+        // 해당 phone_number의 유저가 있는지를 check를 통해 체크
+        this.$http.post('/api/login/check', {
+          user: this.user
+        })
+        .then(
+          (response) => { // 있음 -> 로그인 성공
+            alert('이미 있는 휴대폰 번호입니다. 로그인합니다.')
+            this.$router.push('/hihi') // /hihi 페이지로 이동
+          },
+          (error) => { // 없음 -> 자동 회원가입
+            this.$http.post('/api/login/signUp', { // signUp을 통해 새로운 유저 생성
+              user: this.user
+            })
+            .then(
+              (response) => { // 정상적으로 생성
+              if (response.data.result === 0) { // 에러 발생
+                alert('에러가 발생했습니다. 관리자한테 문의해주세요.')
+              }
+              if (response.data.result === 1) { // 정상적으로 생성
+                alert('새로운 휴대폰 번호입니다. 자동 로그인합니다.')
+                this.$router.push('/login') // /login 페이지로 이동
+              }
+            })
+            .catch(function (error) {
+              alert('error')
+            })
+          }
+        )
+        .catch(error => {
+          alert(error)
+        })
+      }
     }
   }
 }
