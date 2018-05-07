@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img src="../assets/OPINION_logo_blue.png">
     <div class="main">
       <h1><b>OPINION</b>: Filter</h1>
       <p>세상의 모든 생각, 오피니언</p>
@@ -56,7 +57,7 @@ export default {
         .then(
           (response) => { // 있음 -> 로그인 성공
             alert('이미 있는 휴대폰 번호입니다. 로그인합니다.')
-            this.$router.push('/hihi') // /hihi 페이지로 이동
+            this.$router.push('/main') // /main 페이지로 이동
           },
           (error) => { // 없음 -> 자동 회원가입
             this.$http.post('/api/login/signUp', { // signUp을 통해 새로운 유저 생성
@@ -69,7 +70,7 @@ export default {
               }
               if (response.data.result === 1) { // 정상적으로 생성
                 alert('새로운 휴대폰 번호입니다. 자동 로그인합니다.')
-                this.$router.push('/login') // /login 페이지로 이동
+                this.$router.push('/main') // /main 페이지로 이동
               }
             })
             .catch(function (error) {
