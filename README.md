@@ -1,8 +1,16 @@
 # vue-login
 
+## Install
+Install [mongoDB](https://www.mongodb.com/).
+
 ## Usage
 
 ### frontend
+
+#### Install
+```
+frontend$ npm install
+```
 
 #### Build
 ```
@@ -17,10 +25,18 @@ frontend$ npm run dev
 
 ### backend
 
+#### Install
+```
+backend$ npm install
+```
+
 #### Run
 ```
-backend$ DEBUG=backend:* npm start
 backend$ npm start
+```
+or
+```
+backend$ DEBUG=backend:* npm start
 ```
 > http://localhost:3000
 
@@ -52,4 +68,4 @@ db$ mongo
 ```
 
 ## Reference
-[[Node.js] mongoDB , node.js, vue.js 를 통한 CURD(로그인, 회원가입)](https://m.blog.naver.com/kangminser88/221152151491)
+[[Node.js] mongoDB , node.js, vue.js 를 통한 CURD(로그인, 회원가입)](https://m.blog.naver.com/kangminser88/221152151491)  
