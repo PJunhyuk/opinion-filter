@@ -51,7 +51,7 @@ export default {
         alert("11자리여야 합니다")
       } else {
         // 해당 phone_number의 유저가 있는지를 check를 통해 체크
-        this.$http.post('/api/login/check', {
+        this.$http.post('/api/users/check', {
           user: this.user
         })
         .then(
@@ -59,13 +59,13 @@ export default {
             alert('이미 있는 휴대폰 번호입니다. 로그인합니다.')
 
             // phone_number 에 해당하는 User 의 _id 찾은 다음, 그 링크로 접근
-            this.$http.get(`/api/login/get_info/${this.user.phone_number}`)
+            this.$http.get(`/api/users/get_info/${this.user.phone_number}`)
             .then((response) => {
               this.$router.push({ name: 'main', params: { user_id: response.data._id } }) // /main 페이지로 이동
             })
           },
           (error) => { // 없음 -> 자동 회원가입
-            this.$http.post('/api/login/signUp', { // signUp을 통해 새로운 유저 생성
+            this.$http.post('/api/users/signUp', { // signUp을 통해 새로운 유저 생성
               user: this.user
             })
             .then(
@@ -77,7 +77,7 @@ export default {
                 alert('새로운 휴대폰 번호입니다. 자동 로그인합니다.')
 
                 // phone_number 에 해당하는 User 의 _id 찾은 다음, 그 링크로 접근
-                this.$http.get(`/api/login/get_info/${this.user.phone_number}`)
+                this.$http.get(`/api/users/get_info/${this.user.phone_number}`)
                 .then((response) => {
                   this.$router.push({ name: 'main', params: { user_id: response.data._id } }) // /main 페이지로 이동
                 })

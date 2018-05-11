@@ -20,7 +20,7 @@ export default {
   created () {
     var user_id = this.$route.params.user_id
 
-    this.$http.get(`/api/login/get_info_id/${this.$route.params.user_id}`)
+    this.$http.get(`/api/users/get_info_id/${this.$route.params.user_id}`)
     .then((response) => {
       this.user.phone_number = response.data.phone_number
       this.user.status = response.data.status
