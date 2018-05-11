@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
   phone_number: String,
-  create_date: { type: Date, default: Date.now }
+  create_date: { type: Date, default: Date.now },
+  status: Number
 });
 
 module.exports = mongoose.model('user', userSchema);

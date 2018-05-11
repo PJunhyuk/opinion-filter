@@ -24,6 +24,7 @@ router.post('/signUp', function (req, res, next) {
   const user = new User();
 
   user.phone_number = req.body.user.phone_number;
+  user.status = 0;
 
   user.save(function(err) {
     if(err) {
