@@ -43,7 +43,9 @@ backend$ DEBUG=backend:* npm start
 ### DB
 
 #### Start
+
 ```
+vue-login$ mkdir db
 vue-login$ mongod --dbpath ./db
 ```
 > http://localhost:27017
