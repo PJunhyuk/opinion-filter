@@ -1,10 +1,9 @@
 <template>
   <div>
-    <p>main</p>
-    <p>---</p>
     <p>{{ $route.params.user_id }}</p>
-    <p>---</p>
     <p>{{ user.phone_number }}</p>
+    <p>{{ user.status }}</p>
+    <button @click="btn_next">NEXT</button>
   </div>
 </template>
 <script>
@@ -13,7 +12,8 @@ export default {
   data () {
     return {
       user: {
-        phone_number: ''
+        phone_number: '',
+        status: ''
       }
     }
   },
@@ -23,7 +23,13 @@ export default {
     this.$http.get(`/api/login/get_info_id/${this.$route.params.user_id}`)
     .then((response) => {
       this.user.phone_number = response.data.phone_number
+      this.user.status = response.data.status
     })
+  },
+  methods: {
+    btn_next: function() {
+      this.user.status++
+    }
   }
 }
 </script>
