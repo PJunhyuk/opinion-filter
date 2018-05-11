@@ -4,36 +4,26 @@
     <p>---</p>
     <p>{{ $route.params.user_id }}</p>
     <p>---</p>
-    <p>{{ get_status ($route.params.user_id) }}</p>
+    <p>{{ user.phone_number }}</p>
   </div>
 </template>
 <script>
 /* eslint-disable */
 export default {
-  created () {
-    this.$http.get('/api/login/get_info')
-    .then((response) => {
-      console.log(response.data)
-      this.users = response.data
-    })
-  },
   data () {
     return {
-      users: []
+      user: {
+        phone_number: ''
+      }
     }
   },
-  methods: {
-    get_status (user_id) {
-      var phone_number = ''
-      this.$http.get(`/api/login/get_info_id/${user_id}`)
-      .then((response) => {
-        console.log(response.data.phone_number)
-        phone_number = response.data.phone_number
-      })
+  created () {
+    var user_id = this.$route.params.user_id
 
-      console.log(phone_number)
-      return phone_number
-    }
+    this.$http.get(`/api/login/get_info_id/${this.$route.params.user_id}`)
+    .then((response) => {
+      this.user.phone_number = response.data.phone_number
+    })
   }
 }
 </script>

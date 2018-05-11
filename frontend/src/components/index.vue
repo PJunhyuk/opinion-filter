@@ -75,7 +75,12 @@ export default {
               }
               if (response.data.result === 1) { // 정상적으로 생성
                 alert('새로운 휴대폰 번호입니다. 자동 로그인합니다.')
-                this.$router.push({ name: 'main', params: { userId: this.user.phone_number } }) // /main 페이지로 이동
+
+                // phone_number 에 해당하는 User 의 _id 찾은 다음, 그 링크로 접근
+                this.$http.get(`/api/login/get_info/${this.user.phone_number}`)
+                .then((response) => {
+                  this.$router.push({ name: 'main', params: { user_id: response.data._id } }) // /main 페이지로 이동
+                })
               }
             })
             .catch(function (error) {
