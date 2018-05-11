@@ -14,7 +14,7 @@ export default new Router({
       component: index
     },
     {
-      path: '/main',
+      path: '/main/:user_id',
       name: 'main',
       component: main
     }

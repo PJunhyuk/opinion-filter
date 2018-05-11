@@ -36,4 +36,29 @@ router.post('/signUp', function (req, res, next) {
   });
 });
 
+// User 의 정보를 가져오자
+router.get('/get_info', function (req, res, next) {
+  User.find(function(err, users) {
+    res.json(users);
+  })
+});
+
+// phone_number 에 해당하는 User의 정보를 가져오자
+router.get('/get_info/:phone_number', function(req, res) {
+  User.findOne({phone_number: req.params.phone_number}, function(err, user) {
+    if(err) return res.status(500).json({error: err});
+    if(!user) return res.status(404).json({error: 'user not found'});
+    res.json(user);
+  })
+})
+
+// user_id 에 해당하는 User의 정보를 가져오자
+router.get('/get_info_id/:user_id', function(req, res) {
+  User.findOne({user_id: req.params._id}, function(err, user) {
+    if(err) return res.status(500).json({error: err});
+    if(!user) return res.status(404).json({error: 'user not found'});
+    res.json(user);
+  })
+})
+
 module.exports = router;

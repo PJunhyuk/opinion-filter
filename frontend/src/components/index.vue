@@ -57,7 +57,12 @@ export default {
         .then(
           (response) => { // 있음 -> 로그인 성공
             alert('이미 있는 휴대폰 번호입니다. 로그인합니다.')
-            this.$router.push('/main') // /main 페이지로 이동
+
+            // phone_number 에 해당하는 User 의 _id 찾은 다음, 그 링크로 접근
+            this.$http.get(`/api/login/get_info/${this.user.phone_number}`)
+            .then((response) => {
+              this.$router.push({ name: 'main', params: { user_id: response.data._id } }) // /main 페이지로 이동
+            })
           },
           (error) => { // 없음 -> 자동 회원가입
             this.$http.post('/api/login/signUp', { // signUp을 통해 새로운 유저 생성
@@ -70,7 +75,7 @@ export default {
               }
               if (response.data.result === 1) { // 정상적으로 생성
                 alert('새로운 휴대폰 번호입니다. 자동 로그인합니다.')
-                this.$router.push('/main') // /main 페이지로 이동
+                this.$router.push({ name: 'main', params: { userId: this.user.phone_number } }) // /main 페이지로 이동
               }
             })
             .catch(function (error) {
