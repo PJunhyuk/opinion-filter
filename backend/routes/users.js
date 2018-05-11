@@ -61,4 +61,18 @@ router.get('/get_info_id/:user_id', function(req, res) {
   })
 })
 
+router.post('/status_up', function (req, res, next) {
+  // MongoDB에서 해당 핸드폰 번호 찾기
+  User.findOne({phone_number: req.body.user.phone_number}, function(err, user){
+    // 해당 유저의 status 업데이트
+    user.status++;
+
+    // 저장
+    user.save(function(err){
+        if(err) res.status(500).json({error: 'failed to update'});
+        res.json({message: 'book updated'});
+    });
+  })
+})
+
 module.exports = router;

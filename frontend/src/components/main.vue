@@ -28,7 +28,10 @@ export default {
   },
   methods: {
     btn_next: function() {
-      this.user.status++
+      this.user.status++ // 보이는 것 먼저 업데이트
+      this.$http.post('/api/users/status_up', { // status_up 을 통해 db 도 업데이트
+        user: this.user
+      })
     }
   }
 }
