@@ -3,6 +3,15 @@
     <p>{{ $route.params.user_id }}</p>
     <p>{{ user.phone_number }}</p>
     <p>{{ user.status }}</p>
+    <hr/>
+    <input type="radio" id="one" value="1" v-model="picked">
+    <label for="one">1</label>
+    <input type="radio" id="two" value="2" v-model="picked">
+    <label for="two">2</label>
+    <hr/>
+    <span>선택: {{ picked }}</span>
+    <hr/>
+
     <button @click="btn_next">NEXT</button>
   </div>
 </template>
@@ -14,7 +23,8 @@ export default {
       user: {
         phone_number: '',
         status: ''
-      }
+      },
+      picked: ''
     }
   },
   created () {
