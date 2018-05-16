@@ -1,15 +1,25 @@
 <template>
   <div>
-    <p>{{ $route.params.user_id }}</p>
-    <p>{{ user.phone_number }}</p>
-    <p>{{ user.status }}</p>
-    <hr/>
-    <input type="radio" id="one" value="1" v-model="user.checked">
-    <label for="one">1</label>
-    <input type="radio" id="two" value="2" v-model="user.checked">
-    <label for="two">2</label>
-    <hr/>
-    <button @click="btn_next">NEXT</button>
+    <div v-if="user.status <= 3">
+      <p>{{ $route.params.user_id }}</p>
+      <p>{{ user.phone_number }}</p>
+      <p>{{ user.status }}</p>
+      <hr/>
+      <input type="radio" id="one" value="1" v-model="user.checked">
+      <label for="one">1</label>
+      <input type="radio" id="two" value="2" v-model="user.checked">
+      <label for="two">2</label>
+      <hr/>
+      <button @click="btn_next">NEXT</button>
+    </div>
+    <div v-else>
+      <img src="../assets/OPINION_logo_blue.png">
+      <div class="main">
+        <h1><b>OPINION</b>: Filter</h1>
+        <p>세상의 모든 생각, 오피니언</p>
+        <h2>준비한 질문이 끝났습니다. 감사합니다!</h2>
+      </div>
+    </div>
   </div>
 </template>
 <script>

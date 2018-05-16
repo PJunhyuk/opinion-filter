@@ -103,16 +103,6 @@ input, button:focus {
   outline: none;
 }
 
-.main h1, h2 {
-  font-weight: normal;
-}
-.main h1 {
-  color: #0e284b;
-}
-.main p {
-  margin-top: -20px;
-}
-
 ul {
   list-style-type: none;
   padding: 0;

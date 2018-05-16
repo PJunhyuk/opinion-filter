@@ -23,4 +23,15 @@ export default {
 #app img {
   width: 250px;
 }
+
+.main h1, h2 {
+  font-weight: normal;
+}
+.main h1 {
+  color: #0e284b;
+}
+.main p {
+  margin-top: -20px;
+}
+
 </style>
