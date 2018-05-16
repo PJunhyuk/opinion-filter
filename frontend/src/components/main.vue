@@ -4,14 +4,11 @@
     <p>{{ user.phone_number }}</p>
     <p>{{ user.status }}</p>
     <hr/>
-    <input type="radio" id="one" value="1" v-model="picked">
+    <input type="radio" id="one" value="1" v-model="user.checked">
     <label for="one">1</label>
-    <input type="radio" id="two" value="2" v-model="picked">
+    <input type="radio" id="two" value="2" v-model="user.checked">
     <label for="two">2</label>
     <hr/>
-    <span>선택: {{ picked }}</span>
-    <hr/>
-
     <button @click="btn_next">NEXT</button>
   </div>
 </template>
@@ -22,9 +19,9 @@ export default {
     return {
       user: {
         phone_number: '',
-        status: ''
+        status: '',
+        checked: ''
       },
-      picked: ''
     }
   },
   created () {
@@ -40,6 +37,9 @@ export default {
     btn_next: function() {
       this.user.status++ // 보이는 것 먼저 업데이트
       this.$http.post('/api/users/status_up', { // status_up 을 통해 db 도 업데이트
+        user: this.user
+      })
+      this.$http.post('/api/users/response', { // response 를 통해 status 상태의 q_ 값을 checked 값으로 업데이트
         user: this.user
       })
     }
