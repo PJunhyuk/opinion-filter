@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div v-if="user.status <= 3">
+    <div v-if="user.status <= 2">
       <p>{{ $route.params.user_id }}</p>
       <p>{{ user.phone_number }}</p>
-      <p>{{ user.status }}</p>
+      <p>{{ user.status + 1 }}</p>
       <hr/>
       <input type="radio" id="one" value="1" v-model="user.checked">
       <label for="one">1</label>
@@ -51,14 +51,26 @@ export default {
   },
   methods: {
     btn_next: function() {
-      this.user.status++ // 보이는 것 먼저 업데이트
-      this.$http.post('/api/users/status_up', { // status_up 을 통해 db 도 업데이트
-        user: this.user
-      })
-      this.$http.post('/api/users/response', { // response 를 통해 status 상태의 q_ 값을 checked 값으로 업데이트
-        user: this.user
-      })
-      this.user.checked = false // 버튼 클릭할 때마다 radio checked 된 것들 초기화
+      if (this.user.checked === '' | this.user.checked === '0' | this.user.checked === false) {
+        alert('아무 것도 선택하지 않으시면 다음 질문으로 넘어갈 수 없습니다!')
+      } else {
+        this.user.status++ // 보이는 것 업데이트
+        this.$http.post('/api/users/status_up', { // status_up 을 통해 db 도 업데이트
+          user: this.user
+        })
+        .then(
+          (response) => {
+            this.$http.post('/api/users/response', { // response 를 통해 status 상태의 q_ 값을 checked 값으로 업데이트
+              user: this.user
+            })
+            .then(
+              (response) => {
+                this.user.checked = false // 버튼 클릭할 때마다 radio checked 된 것들 초기화
+              }
+            )
+          }
+        )
+      }
     }
   }
 }

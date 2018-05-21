@@ -76,8 +76,6 @@ router.post('/status_up', function (req, res, next) {
 
 // response 업데이트
 router.post('/response', function (req, res, next) {
-  console.log('cp#3')
-
   // MongoDB에서 해당 User를 phone_number로 찾기
   User.findOne({phone_number: req.body.user.phone_number}, function(err, user) {
     if(user.status == 1) user.q_1 = req.body.user.checked;
