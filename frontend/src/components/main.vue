@@ -58,6 +58,7 @@ export default {
       this.$http.post('/api/users/response', { // response 를 통해 status 상태의 q_ 값을 checked 값으로 업데이트
         user: this.user
       })
+      this.user.checked = false // 버튼 클릭할 때마다 radio checked 된 것들 초기화
     }
   }
 }
