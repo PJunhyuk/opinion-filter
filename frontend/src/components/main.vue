@@ -25,6 +25,7 @@
 <script>
 /* eslint-disable */
 export default {
+  name: 'main',
   data () {
     return {
       user: {
@@ -38,10 +39,15 @@ export default {
     var user_id = this.$route.params.user_id
 
     this.$http.get(`/api/users/get_info_id/${this.$route.params.user_id}`)
-    .then((response) => {
-      this.user.phone_number = response.data.phone_number
-      this.user.status = response.data.status
-    })
+    .then(
+      (response) => {
+        this.user.phone_number = response.data.phone_number
+        this.user.status = response.data.status
+      },
+      (error) => { // url이 db의 user_id 중 하나가 아닌 경우
+        this.$router.push({ name: 'error'}) // /error 페이지로 이동
+      }
+    )
   },
   methods: {
     btn_next: function() {
