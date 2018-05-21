@@ -1,48 +1,45 @@
 # vue-login
 
-## Install
-Install [mongoDB](https://www.mongodb.com/).
+## Dependencies
+Using MEVN stacks.  
+> [mongoDB](https://www.mongodb.com/)  
 
-## Usage
+## Usage - local
 
-### frontend
+#### frontend
 
-#### Install
+###### Install
 ```
 frontend$ npm install
 ```
 
-#### Build
-```
-frontend$ npm run build
-```
-
-#### Run
+###### Run
 ```
 frontend$ npm run dev
 ```
 > http://localhost:8080
 
-### backend
+###### Build
+```
+frontend$ npm run build
+```
 
-#### Install
+#### backend
+
+###### Install
 ```
 backend$ npm install
 ```
 
-#### Run
+###### Run
 ```
 backend$ npm start
 ```
-or
-```
-backend$ DEBUG=backend:* npm start
-```
 > http://localhost:3000
 
-### DB
+#### DB
 
-#### Start
+###### Start
 
 ```
 vue-login$ mkdir db
@@ -50,12 +47,12 @@ vue-login$ mongod --dbpath ./db
 ```
 > http://localhost:27017
 
-#### Access
+###### Access
 ```
 db$ mongo
 ```
 
-##### Reset
+###### Reset
 ```
 > show dbs
 > use opinion
@@ -63,10 +60,45 @@ db$ mongo
 ```
 > change db name -> /backend/app.js
 
-##### Check
+###### Check
 ```
 > use opinion
 > db.users.find()
+```
+
+## Usage - server
+
+#### Install
+```
+~# git clone https://github.com/PJunhyuk/vue-login
+```
+
+#### Frontend
+```
+~/vue-login/frontend# npm install
+~/vue-login/frontend# npm run build
+```
+
+#### DB
+```
+~/vue-login# mkdir db
+~/vue-login# mongod --fork --logpath ./db/mongod.log --dbpath ./db
+```
+
+###### Access/Reset/Check
+Same with `Usage - local`
+
+#### Backend
+```
+~/vue-login/backend# npm install
+~/vue-login/backend# forever start --minUptime 1000 --spinSleepTime 1000 ./bin/www
+```
+> {server-url}:3000
+
+###### Forever
+```
+~/vue-login/backend# forever list
+~/vue-login/backend# forever stop 0
 ```
 
 ## Customize
