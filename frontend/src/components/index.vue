@@ -49,6 +49,8 @@ export default {
     login: function (event) {
       if (this.user.phone_number.length < 11) {
         alert("11자리여야 합니다")
+      } else if (!(/^\d+$/.test(this.user.phone_number))) {
+        alert("숫자만 입력해주세요")
       } else {
         // 해당 phone_number의 유저가 있는지를 check를 통해 체크
         this.$http.post('/api/users/check', {
