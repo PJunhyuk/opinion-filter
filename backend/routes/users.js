@@ -79,8 +79,8 @@ router.post('/response', function (req, res, next) {
   // MongoDB에서 해당 User를 phone_number로 찾기
   User.findOne({phone_number: req.body.user.phone_number}, function(err, user) {
     if(user.status == 1) user.q_1 = req.body.user.checked;
-    if(user.status == 2) user.q_2 = req.body.user.checked;
-    if(user.status == 3) user.q_3 = req.body.user.checked;
+    // if(user.status == 2) user.q_2 = req.body.user.checked;
+    // if(user.status == 3) user.q_3 = req.body.user.checked;
 
     // 저장
     user.save(function(err){

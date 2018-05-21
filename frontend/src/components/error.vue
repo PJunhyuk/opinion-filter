@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../assets/OPINION_logo_blue.png">
+    <img class="main-logo" src="../assets/OPINION_logo_blue.png">
     <div class="main">
       <h1><b>OPINION</b>: Filter</h1>
       <p>세상의 모든 생각, 오피니언</p>

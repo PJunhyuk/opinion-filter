@@ -76,5 +76,10 @@ You have to add/remove elements for MongoDB - Fix `userSchema` in `/backend/mode
 You have to add/remove if-statement for express - Fix `/app/response` in `/backend/routes/users.js`.  
 You have to change threshold for Vuejs - Fix `v-if` in `/frontend/src/components/main.vue`.  
 
+## Dataset
+
+MOLDIV > NATURAL > CREAM  
+MOLDIV > NATURAL > LOVELY  
+
 ## Reference
 [[Node.js] mongoDB , node.js, vue.js 를 통한 CURD(로그인, 회원가입)](https://m.blog.naver.com/kangminser88/221152151491)  
