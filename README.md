@@ -108,10 +108,46 @@ You have to add/remove elements for MongoDB - Fix `userSchema` in `/backend/mode
 You have to add/remove if-statement for express - Fix `/app/response` in `/backend/routes/users.js`.  
 You have to change threshold for Vuejs - Fix `v-if` in `/frontend/src/components/main.vue`.  
 
-## Dataset
+## Tested Assets
 
-MOLDIV > NATURAL > CREAM  
-MOLDIV > NATURAL > LOVELY  
+#### Filter
 
-## Reference
-[[Node.js] mongoDB , node.js, vue.js 를 통한 CURD(로그인, 회원가입)](https://m.blog.naver.com/kangminser88/221152151491)  
+- Original  
+- Foodie > TR2  
+- MOLDIV > NATURAL > CREAM  
+- MOLDIV > NATURAL > LOVELY  
+- Camera360 > Rosy  
+- InstaSize > HULA  
+- VSCO > C1
+- VSCO >
+- VSCO >
+
+#### Photo
+
+- 1. 풍경: SF2017 붉은조명 실내
+- 2. 인물: 바이러스네트워크 단체사진 실내
+- 3. 음식: 와플
+- 4. 음식: 스타벅스
+- 5. 풍경: 부산역
+
+## Thanks to
+
+###### Filter recommend
+
+- 김윤
+- 고은해
+- 심윤지
+- 최다은
+- 박강민
+
+###### Photo donation
+
+-
+
+## Special Thanks to
+
+###### TEAM OPINION
+
+- 김현준  
+- 이민우  
+- 정종호  
