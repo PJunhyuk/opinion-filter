@@ -1,4 +1,4 @@
-# vue-login
+# opinion-filter
 
 ## Dependencies
 Using MEVN stacks.  
@@ -42,8 +42,8 @@ backend$ npm start
 ###### Start
 
 ```
-vue-login$ mkdir db
-vue-login$ mongod --dbpath ./db
+opinion-filter$ mkdir db
+opinion-filter$ mongod --dbpath ./db
 ```
 > http://localhost:27017
 
@@ -70,19 +70,19 @@ db$ mongo
 
 #### Install
 ```
-~# git clone https://github.com/PJunhyuk/vue-login
+~# git clone https://github.com/PJunhyuk/opinion-filter
 ```
 
 #### Frontend
 ```
-~/vue-login/frontend# npm install
-~/vue-login/frontend# npm run build
+~/opinion-filter/frontend# npm install
+~/opinion-filter/frontend# npm run build
 ```
 
 #### DB
 ```
-~/vue-login# mkdir db
-~/vue-login# mongod --fork --logpath ./db/mongod.log --dbpath ./db
+~/opinion-filter# mkdir db
+~/opinion-filter# mongod --fork --logpath ./db/mongod.log --dbpath ./db
 ```
 
 ###### Access/Reset/Check
@@ -90,15 +90,15 @@ Same with `Usage - local`
 
 #### Backend
 ```
-~/vue-login/backend# npm install
-~/vue-login/backend# forever start --minUptime 1000 --spinSleepTime 1000 ./bin/www
+~/opinion-filter/backend# npm install
+~/opinion-filter/backend# forever start --minUptime 1000 --spinSleepTime 1000 ./bin/www
 ```
-> {server-url}:3000
+> {server-url}
 
 ###### Forever
 ```
-~/vue-login/backend# forever list
-~/vue-login/backend# forever stop 0
+~/opinion-filter/backend# forever list
+~/opinion-filter/backend# forever stop 0
 ```
 
 ## Customize
@@ -112,22 +112,17 @@ You have to change threshold for Vuejs - Fix `v-if` in `/frontend/src/components
 
 #### Filter
 
-- Original  
 - Foodie > TR2  
-- Camera360 > Rosy  
 - InstaSize > HULA  
 - VSCO > C1
-- VSCO > F2
 - MOLDIV > NATURAL > CREAM  
+
+###### Not used
+
+- VSCO > F2
 - MOLDIV > NATURAL > LOVELY  
-
-#### Photo
-
-- 1. 풍경: SF2017 붉은조명 실내
-- 2. 인물: 바이러스네트워크 단체사진 실내
-- 3. 음식: 와플
-- 4. 음식: 스타벅스
-- 5. 풍경: 부산역
+- Camera360 > Rosy  
+- Original  
 
 ## Thanks to
 
@@ -141,7 +136,17 @@ You have to change threshold for Vuejs - Fix `v-if` in `/frontend/src/components
 
 ###### Photo donation
 
--
+- 이명성
+- 곽소현
+- 김민주
+- 최다은
+- 유영은
+- 신채원
+- 김재현96
+- 김재현95
+- 문현석
+- 박여현
+- 고은해
 
 ## Special Thanks to
 
@@ -150,3 +155,7 @@ You have to change threshold for Vuejs - Fix `v-if` in `/frontend/src/components
 - 김현준  
 - 이민우  
 - 정종호  
+
+###### ADVISOR
+
+- 신채원
