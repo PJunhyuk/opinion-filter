@@ -1,24 +1,68 @@
 <template>
   <div>
-    <div v-if="user.status <= 1-1">
+    <div v-if="user.status <= 112-1">
       <p>{{ user.phone_number }}</p>
       <p>{{ user.status + 1 }}</p>
       <hr/>
       <label for="one">
         <input type="radio" id="one" value="1" v-model="user.checked">
-        <img class="dataset-img" :src="image_1" />
+        <img v-if="(user.status + 1) % 4 === 0 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_c1.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 1 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_cream.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 2 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_c1.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 3 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_cream.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 0 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_c1.jpg'" />
+        <img v-if="(user.status + 1) % 4 === 1 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_cream.JPG'" />
+        <img v-if="(user.status + 1) % 4 === 2 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_c1.jpg'" />
+        <img v-if="(user.status + 1) % 4 === 3 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_cream.JPG'" />
       </label>
       <label for="two">
         <input type="radio" id="two" value="2" v-model="user.checked">
-        <img class="dataset-img" :src="image_2" />
+        <img v-if="(user.status + 1) % 4 === 0 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_hula.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 1 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_tr2.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 2 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_hula.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 3 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_tr2.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 0 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_hula.png'" />
+        <img v-if="(user.status + 1) % 4 === 1 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_tr2.jpg'" />
+        <img v-if="(user.status + 1) % 4 === 2 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_hula.png'" />
+        <img v-if="(user.status + 1) % 4 === 3 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_tr2.jpg'" />
       </label>
-      <label for="three">
+      <!-- <label for="three">
         <input type="radio" id="three" value="3" v-model="user.checked">
-        <img class="dataset-img" :src="image_3" />
-      </label>
+        <img class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_f2.jpeg'" />
+      </label> -->
       <label for="four">
         <input type="radio" id="four" value="4" v-model="user.checked">
-        <img class="dataset-img" :src="image_4" />
+        <img v-if="(user.status + 1) % 4 === 0 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_cream.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 1 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_c1.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 2 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_cream.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 3 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_c1.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 0 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_cream.JPG'" />
+        <img v-if="(user.status + 1) % 4 === 1 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_c1.jpg'" />
+        <img v-if="(user.status + 1) % 4 === 2 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_cream.JPG'" />
+        <img v-if="(user.status + 1) % 4 === 3 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_c1.jpg'" />
+      </label>
+      <!-- <label for="five">
+        <input type="radio" id="five" value="5" v-model="user.checked">
+        <img class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_lovely.jpeg'" />
+      </label> -->
+      <!-- <label for="six">
+        <input type="radio" id="six" value="6" v-model="user.checked">
+        <img class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_original.jpeg'" />
+      </label> -->
+      <!-- <label for="seven">
+        <input type="radio" id="seven" value="7" v-model="user.checked">
+        <img class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_rosy.jpeg'" />
+      </label> -->
+      <label for="eight">
+        <input type="radio" id="eight" value="8" v-model="user.checked">
+        <img v-if="(user.status + 1) % 4 === 0 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_tr2.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 1 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_hula.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 2 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_tr2.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 3 && (user.status + 1) < 18" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_hula.jpeg'" />
+        <img v-if="(user.status + 1) % 4 === 0 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_tr2.jpg'" />
+        <img v-if="(user.status + 1) % 4 === 1 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_hula.png'" />
+        <img v-if="(user.status + 1) % 4 === 2 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_tr2.jpg'" />
+        <img v-if="(user.status + 1) % 4 === 3 && (user.status + 1) > 17" class="dataset-img" :src="'http://jgravity0.cafe24.com/dataset/image_' + (this.user.status+1).toString() + '/image_' + (this.user.status+1).toString() + '_hula.png'" />
       </label>
       <hr/>
       <button @click="btn_next">NEXT</button>
@@ -33,12 +77,8 @@
     </div>
   </div>
 </template>
-<script>
-import Image0101 from '../assets/dataset/image_1_original.jpeg'
-import Image0102 from '../assets/dataset/image_1_tr2.jpeg'
-import Image0103 from '../assets/dataset/image_1_cream.jpeg'
-import Image0104 from '../assets/dataset/image_1_lovely.jpeg'
 
+<script>
 /* eslint-disable */
 export default {
   name: 'main',
@@ -88,20 +128,6 @@ export default {
         )
       }
     }
-  },
-  computed: {
-    image_1 () {
-      if (this.user.status+1 === 1) { return Image0101 }
-    },
-    image_2 () {
-      if (this.user.status+1 === 1) { return Image0102 }
-    },
-    image_3 () {
-      if (this.user.status+1 === 1) { return Image0103 }
-    },
-    image_4 () {
-      if (this.user.status+1 === 1) { return Image0104 }
-    }
   }
 }
 </script>
@@ -109,7 +135,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .dataset-img {
-  width: 30%;
+  width: 24%;
 }
 @media (max-width: 768px) {
   .dataset-img {

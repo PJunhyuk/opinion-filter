@@ -114,13 +114,12 @@ You have to change threshold for Vuejs - Fix `v-if` in `/frontend/src/components
 
 - Original  
 - Foodie > TR2  
-- MOLDIV > NATURAL > CREAM  
-- MOLDIV > NATURAL > LOVELY  
 - Camera360 > Rosy  
 - InstaSize > HULA  
 - VSCO > C1
-- VSCO >
-- VSCO >
+- VSCO > F2
+- MOLDIV > NATURAL > CREAM  
+- MOLDIV > NATURAL > LOVELY  
 
 #### Photo
 

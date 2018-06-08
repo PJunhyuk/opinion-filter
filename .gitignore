@@ -78,3 +78,5 @@ selenium-debug.log
 backend/public
 
 db
+
+dataset/
